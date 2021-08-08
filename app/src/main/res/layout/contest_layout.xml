@@ -1,25 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/parent">
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/rellay">
 
         <TextView
-            android:id="@+id/txtSetAlarm"
+            android:id="@+id/txtContestSetAlarm"
             android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_height="0dp"
             android:background="@drawable/textview_border"
             android:padding="2dp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:text="Set Alarm"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/txtContestName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/txtContestName"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/txtContestRegister"
+            android:layout_width="70dp"
+            android:layout_height="0dp"
+            android:background="@drawable/textview_border"
+            android:padding="2dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:text="Register"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtContestSetAlarm"
+            app:layout_constraintTop_toTopOf="@id/txtContestName"
+            app:layout_constraintBottom_toBottomOf="@id/txtContestName"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/txtContestLength"
+            android:layout_width="55dp"
+            android:layout_height="0dp"
+            android:background="@drawable/textview_border"
+            android:padding="2dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="Length"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtContestRegister"
+            app:layout_constraintTop_toTopOf="@id/txtContestName"
+            app:layout_constraintBottom_toBottomOf="@id/txtContestName"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/txtContestStart"
+            android:layout_width="45dp"
+            android:layout_height="0dp"
+            android:background="@drawable/textview_border"
+            android:padding="2dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="Start"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtContestLength"
+            app:layout_constraintTop_toTopOf="@id/txtContestName"
+            app:layout_constraintBottom_toBottomOf="@id/txtContestName"
+            android:gravity="center"/>
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/txtContestName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/textview_border"
+            android:padding="2dp"
+            android:text="Name"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/txtContestStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
