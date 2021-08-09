@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rellay">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/txtNewRating"
@@ -18,7 +16,7 @@
             android:padding="2dp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            android:text="Set Alarm"
+            android:text="1449"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="@id/txtPastContestName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +30,7 @@
             android:padding="2dp"
             android:paddingStart="6dp"
             android:paddingEnd="6dp"
-            android:text="Register"
+            android:text="+149"
             android:textAlignment="center"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/txtNewRating"
@@ -47,7 +45,7 @@
             android:padding="2dp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            android:text="Length"
+            android:text="6"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/txtRatingChange"
             app:layout_constraintTop_toTopOf="@id/txtPastContestName"
@@ -61,7 +59,7 @@
             android:padding="2dp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
-            android:text="Start"
+            android:text="33000"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/txtSolved"
             app:layout_constraintTop_toTopOf="@id/txtPastContestName"
@@ -72,7 +70,6 @@
             android:id="@+id/txtPastContestName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:background="@drawable/textview_border"
             android:padding="2dp"
             android:text="Name"

@@ -1,7 +1,6 @@
 package com.example.codeforcesapp;
 
 import android.graphics.Color;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,11 +69,11 @@ public class UpcomingContestAdaptor extends RecyclerView.Adapter<UpcomingContest
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent=itemView.findViewById(R.id.parent);
-            txtContestName=itemView.findViewById(R.id.txtContestName);
-            txtContestStart=itemView.findViewById(R.id.txtContestStart);
-            txtContestLength=itemView.findViewById(R.id.txtContestLength);
-            txtContestRegister=itemView.findViewById(R.id.txtContestRegister);
-            txtContestSetAlarm=itemView.findViewById(R.id.txtContestSetAlarm);
+            txtContestName=itemView.findViewById(R.id.txtPastContestName);
+            txtContestStart=itemView.findViewById(R.id.txtContestRank);
+            txtContestLength=itemView.findViewById(R.id.txtSolved);
+            txtContestRegister=itemView.findViewById(R.id.txtRatingChange);
+            txtContestSetAlarm=itemView.findViewById(R.id.txtNewRating);
 
         }
 

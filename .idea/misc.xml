@@ -6,9 +6,10 @@
         <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/drawable/textview_border.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/drawable/textview_border2.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/font/fonts.xml" value="0.26666666666666666" />
-        <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/layout/activity_after_login.xml" value="0.264" />
+        <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/layout/activity_after_login.xml" value="0.6" />
         <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/layout/contest_layout.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/adity/AndroidStudioProjects/CodeforcesApp/app/src/main/res/layout/past_contest_layout.xml" value="0.264" />
       </map>
     </option>
   </component>
