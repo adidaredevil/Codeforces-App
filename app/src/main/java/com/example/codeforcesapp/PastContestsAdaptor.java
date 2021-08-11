@@ -36,7 +36,7 @@ public class PastContestsAdaptor extends RecyclerView.Adapter<PastContestsAdapto
             holder.txtRatingChange.setTextColor(Color.parseColor("#FF0000"));
         holder.txtNewRating.setText(pastContests.get(position).getNewrating());
         int rating=Integer.parseInt(pastContests.get(position).getNewrating());
-        String cc="#cccccc";
+        String cc="#808080";
         if(rating>=1200&&rating<1400){
             cc="#008000";
         }else if(rating>=1400&&rating<1600){

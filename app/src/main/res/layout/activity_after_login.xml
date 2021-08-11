@@ -37,13 +37,14 @@
     <TextView
         android:id="@+id/txtName"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/textview_border"
         android:padding="2dp"
         android:text="Name"
         android:textAlignment="center"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txtNewRating"
         app:layout_constraintEnd_toStartOf="@+id/txtContestRank"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +59,7 @@
         android:padding="2dp"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
-        android:text="Set Alarm"
+        android:text="Set Alert"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUpcomingContests" />
@@ -66,7 +67,7 @@
     <TextView
         android:id="@+id/txtRatingChange"
         android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/textview_border"
         android:padding="2dp"
@@ -75,13 +76,14 @@
         android:text="Register"
         android:textAlignment="center"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txtNewRating"
         app:layout_constraintEnd_toStartOf="@+id/txtNewRating"
         app:layout_constraintTop_toBottomOf="@+id/txtUpcomingContests" />
 
     <TextView
         android:id="@+id/txtSolved"
         android:layout_width="55dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/textview_border"
         android:padding="2dp"
@@ -89,13 +91,14 @@
         android:paddingEnd="4dp"
         android:text="Length"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txtNewRating"
         app:layout_constraintEnd_toStartOf="@+id/txtRatingChange"
         app:layout_constraintTop_toBottomOf="@+id/txtUpcomingContests" />
 
     <TextView
         android:id="@+id/txtContestRank"
         android:layout_width="45dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/textview_border"
         android:padding="2dp"
@@ -103,6 +106,7 @@
         android:paddingEnd="4dp"
         android:text="Start"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txtNewRating"
         app:layout_constraintEnd_toStartOf="@+id/txtSolved"
         app:layout_constraintTop_toBottomOf="@+id/txtUpcomingContests" />
 
@@ -145,7 +149,7 @@
     <TextView
         android:id="@+id/txtPastContestSetAlarm"
         android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/textview_border"
         android:padding="2dp"
@@ -153,6 +157,7 @@
         android:paddingEnd="4dp"
         android:text="New Rating"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPastContestRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtYourPastContests" />
 
@@ -233,6 +238,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/txtYourPastContests"
         app:layout_constraintStart_toEndOf="@+id/txtYourPastContests" />
+
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

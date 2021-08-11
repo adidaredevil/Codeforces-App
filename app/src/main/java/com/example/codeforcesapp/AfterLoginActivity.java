@@ -1,12 +1,18 @@
 package com.example.codeforcesapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,14 +34,23 @@ public class AfterLoginActivity extends AppCompatActivity {
     private UpcomingContestAdaptor adaptor;
     private PastContestsAdaptor pastContestsAdaptor;
     private TextView txtTotalContests;
-    int solved;
-    String username;
-    TextView txtUsername;
-    TextView txtRank;
+    private static final String TAG = "MyActivity";
+    private String username;
+    private TextView txtUsername;
+    private TextView txtRank;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_login);
+        if(getApplicationContext().checkSelfPermission(Manifest.permission.READ_CALENDAR)== PackageManager.PERMISSION_GRANTED);
+                else{
+            requestPermissions(new String[]{Manifest.permission.READ_CALENDAR,Manifest.permission.WRITE_CALENDAR},1);
+         }
+          if(getApplicationContext().checkSelfPermission(Manifest.permission.WRITE_CALENDAR)== PackageManager.PERMISSION_GRANTED);
+           else{
+               requestPermissions(new String[]{Manifest.permission.WRITE_CALENDAR},2);
+           }
         initialize();
         setUsernameRank();
         setUpcomingContest();
@@ -85,7 +100,7 @@ public class AfterLoginActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        String cc="#cccccc";
+                        String cc="#808080";
                         if(rating>=1200&&rating<1400){
                             cc="#008000";
                         }else if(rating>=1400&&rating<1600){
@@ -191,7 +206,7 @@ public class AfterLoginActivity extends AppCompatActivity {
                         adaptor=new UpcomingContestAdaptor();
                         rvUpcomingContests.setAdapter(adaptor);
                         rvUpcomingContests.setLayoutManager(new GridLayoutManager(AfterLoginActivity.this,1));
-                        adaptor.setContests(contestArrayList);
+                        adaptor.setContests(contestArrayList,AfterLoginActivity.this);
 
                     }
                 }, new Response.ErrorListener() {
@@ -257,13 +272,7 @@ public class AfterLoginActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                             String rank=Integer.toString(rankInt);
-                            String solved= null;
-                            try {
-                                solved = getSolved(pastContestDetails.getInt("contestId"));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            pastContestStack.push(new PastContest(name,rank,solved,ratingChange,newRating));
+                            pastContestStack.push(new PastContest(name,rank,"0",ratingChange,newRating));
                         }
                         ArrayList<PastContest> pastContestArrayList=new ArrayList<>();
                         while(pastContestStack.isEmpty()==false)
@@ -287,73 +296,17 @@ public class AfterLoginActivity extends AppCompatActivity {
 // Access the RequestQueue through your singleton class.
         MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
-    String getSolved(int contestID){
-        setSolved(0);
-        String url = "https://codeforces.cc/api/contest.status?contestId="+contestID+"&handle="+username;
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        JSONArray contestdetailsA= null;
-                        try {
-                            contestdetailsA = response.getJSONArray("result");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        for(int j=0;j<contestdetailsA.length();j++){
-                            JSONObject contestdetails= null;
-                            try {
-                                contestdetails = contestdetailsA.getJSONObject(j);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            JSONObject author= null;
-                            try {
-                                author = contestdetails.getJSONObject("author");
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            String participantype= null;
-                            try {
-                                participantype = author.getString("participantType");
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            String verdict= null;
-                            try {
-                                verdict = contestdetails.getString("verdict");
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            if(verdict.equals("OK")&&participantype.equals("CONTESTANT")) {
-                                setSolved(getSolved()+1);
-                            }
-
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-
-                    }
-                });
-
-// Access the RequestQueue through your singleton class.
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
-        return Integer.toString(getSolved());
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==1){
+            if(grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "Granted", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Not Granted", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
-    public void setSolved(int solved) {
-        this.solved = solved;
-    }
-
-    public int getSolved() {
-        return solved;
-    }
 }
