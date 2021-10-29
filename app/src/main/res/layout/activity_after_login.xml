@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AfterLoginActivity"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context=".AfterLoginActivity">
 
     <TextView
         android:id="@+id/txtRank"
@@ -113,11 +113,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUpcomingContests"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height=""
         android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSolved" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSolved"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txtYourPastContests"
@@ -239,9 +241,12 @@
         app:layout_constraintBottom_toBottomOf="@+id/txtYourPastContests"
         app:layout_constraintStart_toEndOf="@+id/txtYourPastContests" />
 
-
-
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="300dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
