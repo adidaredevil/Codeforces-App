@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String codeforcesusername=edtCodeforcesUsername.getText().toString();
-                String url="https://codeforces.cc/api/user.info?handles="+codeforcesusername;
+                String url="https://codeforces.com/api/user.info?handles="+codeforcesusername;
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                         (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 

@@ -67,7 +67,7 @@ public class AfterLoginActivity extends AppCompatActivity {
     }
     void setUsernameRank(){
 
-        String url = "https://codeforces.cc/api/user.info?handles="+username;
+        String url = "https://codeforces.com/api/user.info?handles="+username;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -137,7 +137,7 @@ public class AfterLoginActivity extends AppCompatActivity {
 
     }
     void setUpcomingContest(){
-        String url = "https://codeforces.cc/api/contest.list?gym=false";
+        String url = "https://codeforces.com/api/contest.list?gym=false";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -223,7 +223,7 @@ public class AfterLoginActivity extends AppCompatActivity {
 
     }
     void setPastContest(){
-        String url = "https://codeforces.cc/api/user.rating?handle="+username;
+        String url = "https://codeforces.com/api/user.rating?handle="+username;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
